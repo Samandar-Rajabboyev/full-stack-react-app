@@ -18,7 +18,7 @@ function App() {
     }else if(name && isEditing){
 
     }else {
-      const mewItem = {id: new Date().getTime().toString(), title: name };
+      const newItem = {id: new Date().getTime().toString(), title: name };
       setList([...list, newItem])
       setName('')
     }
@@ -34,7 +34,7 @@ function App() {
             type='text' 
             className='grocery' 
             placeholder='Place for a note' 
-            value='name' 
+            value={name} 
             onChange={(e) => setName(e.target.value)} 
           />
           <button type='submit' className='submit-btn'>
@@ -43,7 +43,7 @@ function App() {
         </div>
       </form>
       <div className='grocery-container'>
-        <List/>
+        <List items={list}/>
         <button className='clear-btn'>clear all</button>
       </div>
     </section>
